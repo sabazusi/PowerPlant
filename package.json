@@ -1,19 +1,12 @@
 {
-  "name": "powerplant",
+  "name": "PowerPlant",
   "version": "0.0.1",
   "description": "create electron project from template",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sabazusi/PowerPlant.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sabazusi/PowerPlant/issues"
-  },
-  "homepage": "https://github.com/sabazusi/PowerPlant#readme"
+  "repository": "https://github.com/sabazusi/PowerPlant",
+  "author": "sabazusi <kouhei.live@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^2.0.0"
+  }
 }
