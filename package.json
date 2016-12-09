@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "create electron project from template",
   "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/index.js"
+  },
   "repository": "https://github.com/sabazusi/PowerPlant",
   "author": "sabazusi <kouhei.live@gmail.com>",
   "license": "MIT",
