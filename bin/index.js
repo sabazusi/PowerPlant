@@ -18,11 +18,14 @@ const projectQuestions = [
     validate: projectNameValidater
   }
 ];
-const confirmQuestion = [
-  {
-    type: 'confirm',
-    name: 'createStandard',
-    message: 'Create standard electron project'
-  }
-];
-inquirer.prompt(projectQuestions).then((answer) => console.log(answer));
+inquirer.prompt(projectQuestions)
+  .then((answer) => {
+    const confirmQuestion = [
+      {
+        type: 'confirm',
+        name: 'createStandard',
+        message: `Create ${answer.projectType} electron project \"${answer.projectName}\"`
+      }
+    ];
+    inquirer.prompt(confirmQuestion);
+  });
