@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 const projectNameValidater = (name) => {
   if (!name) return 'Input something..';
@@ -7,13 +8,13 @@ const projectNameValidater = (name) => {
 const projectQuestions = [
   {
     type: 'list',
-    name: 'projectType',
+    name: 'type',
     message: 'Select electron project type',
     choices: ['standard']
   },
   {
     type: 'input',
-    name: 'projectName',
+    name: 'name',
     message: 'Input project name',
     validate: projectNameValidater
   }
@@ -23,9 +24,17 @@ inquirer.prompt(projectQuestions)
     const confirmQuestion = [
       {
         type: 'confirm',
-        name: 'createStandard',
-        message: `Create ${answer.projectType} electron project \"${answer.projectName}\"`
+        name: 'create',
+        message: `Create ${answer.type} electron project \"${answer.name}\"`
       }
     ];
-    inquirer.prompt(confirmQuestion);
+    inquirer.prompt(confirmQuestion)
+      .then((confirming) => {
+        if (confirming.create) create(answer.name);
+      });
   });
+
+
+const create = (name) => {
+  fs.writeFileSync('package.json', JSON.stringify({hoge: 1}));
+};
