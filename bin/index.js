@@ -23,6 +23,12 @@ const projectQuestions = [
     name: 'author',
     message: 'Input project author name',
     validate: emptyValidater
+  },
+  {
+    type: 'list',
+    name: 'license',
+    message: 'Select license',
+    choices: ['MIT', 'ISC']
   }
 ];
 inquirer.prompt(projectQuestions)
@@ -36,11 +42,11 @@ inquirer.prompt(projectQuestions)
     ];
     inquirer.prompt(confirmQuestion)
       .then((confirming) => {
-        if (confirming.create) create(answer.name, answer.author);
+        if (confirming.create) create(answer);
       });
   });
 
 
-const create = (name, author) => {
+const create = (answer) => {
   fs.writeFileSync('package.json', JSON.stringify({hoge: 1}));
 };
