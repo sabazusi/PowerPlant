@@ -48,5 +48,6 @@ inquirer.prompt(projectQuestions)
 
 
 const create = (answer) => {
-  fs.writeFileSync('package.json', JSON.stringify({hoge: 1}));
+  fs.mkdirSync(answer.name);
+ // fs.writeFileSync('package.json', JSON.stringify({hoge: 1}));
 };
