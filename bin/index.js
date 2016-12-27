@@ -51,5 +51,5 @@ inquirer.prompt(projectQuestions)
 const create = (answer) => {
   fs.mkdirSync(answer.name);
   fs.copySync(path.join(__dirname, '..', 'template', 'projects', answer.type), answer.name);
- // fs.writeFileSync('package.json', JSON.stringify({hoge: 1}));
+  fs.writeFileSync(path.join(answer.name, 'package.json'), JSON.stringify({hoge: 1}));
 };
